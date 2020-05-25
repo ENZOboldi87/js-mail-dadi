@@ -2,27 +2,21 @@
 var richiestaEmail = prompt('Inserici la tua Email');
 var emailUtenti = [ "pinco@gmail.com", "pallino@gmail.com", "gigino@gmail.com", "boldino@gmail.com", "vertino@gmail.com", "giullino@gmail.com",];
 var convalida = false;
-var risMessaggio = document.getElementById('Risultato');
-var messaggio;
+
 
 
 for (var i = 0; i < emailUtenti.length; i++) {
 
-  var emailValida = emailUtenti[i];
-
-  if (richiestaEmail == emailValida) {
-    // email presente
+// email convalidata
+  if (richiestaEmail === emailUtenti[i]) {
     convalida = true;
-    messaggio = ('hai diritto ad acccedere');
-  }
-
-  else if (richiestaEmail !== emailValida) {
-    // email mancante
-    convalida = false;
-    messaggio = ('non hai diritto ad acccedere');
+    document.getElementById('Risultato').innerHTML = ('sei autorizzato')
 
   }
 
-    risMessaggio.innerHTML = messaggio;
+}
+// se email non convalidata
+if (convalida == false) {
+  document.getElementById('Risultato').innerHTML = (' non sei autorizzato')
 
 }
